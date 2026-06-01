@@ -18,4 +18,671 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE.<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Áfricas no Brasil | Memória, Resistência e Herança</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFCF8;  /* branco com leve tom quente */
+            color: #3E2C1F;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Fundo com estrelas sutis (marrom claro sobre branco) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%238B5A2B' fill-opacity='0.12' d='M50,5 L61,35 L95,35 L68,53 L79,85 L50,67 L21,85 L32,53 L5,35 L39,35 Z' /%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 48px 48px;
+            opacity: 0.5;
+        }
+
+        /* Garantir que o conteúdo fique acima das estrelas */
+        header, main, footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        :root {
+            --marrom-escuro: #4A2A1A;
+            --marrom-médio: #6B4226;
+            --marrom-claro: #A77B50;
+            --creme: #FDF7F0;
+            --bege: #F0E2D2;
+            --branco: #FFFFFF;
+            --destaque-ouro: #C9A87C;
+            --sombra: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Header */
+        header {
+            background: var(--branco);
+            backdrop-filter: blur(6px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--marrom-médio);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--marrom-escuro);
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--marrom-médio);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #4A2A1A;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover {
+            color: var(--marrom-claro);
+            border-bottom: 2px solid var(--destaque-ouro);
+            padding-bottom: 4px;
+        }
+
+        /* Botões */
+        .btn-primario {
+            background-color: var(--marrom-escuro);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .btn-primario:hover {
+            background-color: #2F1C0F;
+            transform: translateY(-2px);
+        }
+        .btn-secundario {
+            background: transparent;
+            border: 2px solid var(--marrom-médio);
+            color: var(--marrom-médio);
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        .btn-secundario:hover {
+            background: var(--marrom-médio);
+            color: white;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(107deg, rgba(74, 42, 26, 0.85) 0%, rgba(107, 66, 38, 0.8) 100%), url('https://images.unsplash.com/photo-1589905431304-851f9d1d0c16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center 35%;
+            padding: 110px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 3.4rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Seções */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+            color: var(--marrom-escuro);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 70px;
+            height: 3px;
+            background: var(--marrom-médio);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 760px;
+            margin: 0 auto 3rem;
+            color: #6B4F3A;
+            font-size: 1.05rem;
+        }
+
+        /* Introdução / Timeline conceitual */
+        .intro-grid {
+            display: flex;
+            gap: 48px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .intro-text {
+            flex: 1.2;
+        }
+        .intro-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #3E2C1F;
+        }
+        .intro-img {
+            flex: 0.9;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+        .intro-img img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s;
+        }
+        .intro-img:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Cards de Contexto histórico */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .card {
+            background: var(--branco);
+            border-radius: 28px;
+            padding: 28px 24px;
+            box-shadow: var(--sombra);
+            transition: var(--transition);
+            border: 1px solid var(--bege);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--marrom-claro);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--marrom-médio);
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: var(--marrom-escuro);
+        }
+        .card p {
+            color: #5C4A36;
+        }
+
+        /* Seção Resistência */
+        .resistencia-bg {
+            background: var(--bege);
+            border-radius: 48px;
+            padding: 56px 44px;
+        }
+        .resistencia-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .resistencia-content {
+            flex: 1;
+        }
+        .resistencia-content h3 {
+            font-size: 2rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 1rem;
+        }
+        .resistencia-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .resistencia-content li {
+            margin-bottom: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .resistencia-content i {
+            color: var(--marrom-médio);
+            font-size: 1.4rem;
+            width: 32px;
+        }
+        .resistencia-img {
+            flex: 0.8;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+        .resistencia-img img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Herança cultural */
+        .heranca-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .heranca-item {
+            background: var(--branco);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 32px;
+            box-shadow: var(--sombra);
+            transition: 0.2s;
+            border: 1px solid #E6D9CC;
+        }
+        .heranca-item i {
+            font-size: 2.6rem;
+            color: var(--marrom-médio);
+            margin-bottom: 16px;
+        }
+        .heranca-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--marrom-escuro);
+        }
+
+        /* Dados */
+        .dados {
+            background-color: var(--creme);
+            border-radius: 40px;
+            padding: 48px 32px;
+            text-align: center;
+            border: 1px solid #E3D5C5;
+        }
+        .stats-flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 30px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--marrom-escuro);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+        .stat-desc {
+            font-size: 0.9rem;
+            max-width: 180px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* CTA reflexão */
+        .cta-reflexao {
+            background: linear-gradient(120deg, #4A2A1A 0%, #6B4226 100%);
+            border-radius: 48px;
+            text-align: center;
+            padding: 60px 32px;
+            color: #FFF8F0;
+        }
+        .cta-reflexao h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .cta-reflexao .btn-primario {
+            background: #E6CCB3;
+            color: #4A2A1A;
+            margin-top: 1rem;
+        }
+        .cta-reflexao .btn-primario:hover {
+            background: #FFF2E2;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2E1F14;
+            color: #D9CAB8;
+            padding: 56px 0 28px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-col h4 {
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #F2E3D0;
+        }
+        .footer-col p, .footer-col a {
+            color: #CBBFAE;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        .footer-col a:hover {
+            color: #EAD3B5;
+        }
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .social-icons a {
+            font-size: 1.4rem;
+        }
+        .copyright {
+            border-top: 1px solid #4A3A2C;
+            text-align: center;
+            padding-top: 28px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 20px;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .resistencia-bg {
+                padding: 32px 20px;
+            }
+        }
+
+        /* Estrelas adicionais em elementos específicos (decoração) */
+        .star-deco {
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-right: 6px;
+            color: var(--marrom-claro);
+        }
+        .section-title .star-deco {
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container navbar">
+            <div class="logo">Memória<span>Afro</span></div>
+            <ul class="nav-links">
+                <li><a href="#historico">História</a></li>
+                <li><a href="#resistencia">Resistência</a></li>
+                <li><a href="#heranca">Herança</a></li>
+                <li><a href="#memoria">Memória</a></li>
+            </ul>
+            <a href="#reflexao" class="btn-secundario">Dialogar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Escravidão africana no Brasil<br>Vidas, luta e legado</h1>
+                <p>Mais de três séculos de violência, resistência e uma herança que moldou a alma brasileira. Honrar a memória é compromisso com a justiça e o futuro.</p>
+                <a href="#historico" class="btn-primario">Conheça essa história</a>
+            </div>
+        </section>
+
+        <!-- Seção História / Contexto -->
+        <section id="historico">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h2 class="section-title" style="text-align: left; font-size: 2.2rem;">O ciclo cruel do tráfico</h2>
+                        <p>Entre os séculos XVI e XIX, cerca de <strong>4,8 milhões de africanos</strong> foram desembarcados à força no Brasil – o maior número das Américas. Homens, mulheres e crianças oriundos de diferentes culturas (iorubás, bantos, jejes, fanti-ashanti) foram submetidos à escravidão nos engenhos, minas, fazendas e nas cidades.</p>
+                        <p>O sistema escravocrata negava a humanidade, mas não apagou saberes, línguas, religiões e a insubordinação. A escravidão foi oficialmente abolida em 1888, mas deixou feridas estruturais (racismo, desigualdade) que persistem até hoje.</p>
+                        <p><strong>✊🏿 Lembrar é reparar.</strong> Conhecer esse passado é combater o esquecimento e valorizar a contribuição africana à identidade nacional.</p>
+                    </div>
+                    <div class="intro-img">
+                        <img src="https://images.unsplash.com/photo-1593491761796-720e5f452c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Ilustração simbólica da diáspora africana" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards de contexto -->
+        <section style="padding-top: 0;">
+            <div class="container">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-ship"></i></div>
+                        <h3>Navios negreiros</h3>
+                        <p>Viagem forçada no porão: mais de 1,5 milhão de mortos durante a travessia do Atlântico. Condições desumanas e superlotação.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-cane-sugar"></i></div>
+                        <h3>Engenhos e minas</h3>
+                        <p>Escravidão na agroindústria açucareira (Nordeste) e mineração (Minas Gerais). Rotinas exaustivas e castigos violentos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-gavel"></i></div>
+                        <h3>Lei Áurea e pós-abolição</h3>
+                        <p>13 de maio de 1888 sem políticas de integração. Liberdade sem terra, trabalho ou assistência – exclusão social continuada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resistência Afro-brasileira -->
+        <section id="resistencia">
+            <div class="container">
+                <div class="resistencia-bg">
+                    <div class="resistencia-flex">
+                        <div class="resistencia-content">
+                            <h3><i class="fas fa-fist-raised"></i> Resistência em cada esquina</h3>
+                            <p>Por trás da violência, a população escravizada nunca aceitou passivamente. Criou estratégias de liberdade e preservação cultural.</p>
+                            <ul>
+                                <li><i class="fas fa-fort"></i> <strong>Quilombos:</strong> Palmares, o mais célebre, liderado por Zumbi e Dandara. Comunidades livres que resistiram por décadas.</li>
+                                <li><i class="fas fa-balance-scale"></i> <strong>Revoltas e ações judiciais:</strong> Revolta dos Malês (1835, Salvador) e ação de libertar outros cativos.</li>
+                                <li><i class="fas fa-praying-hands"></i> <strong>Fé e cultura:</strong> Candomblé, Umbanda, capoeira – formas de manter a identidade e subverter o sistema.</li>
+                                <li><i class="fas fa-leaf"></i> <strong>Agricultura e saberes:</strong> Técnicas de cultivo, culinária e medicina que transformaram a sociedade brasileira.</li>
+                            </ul>
+                            <a href="#" class="btn-primario" style="background-color: #6B4226;">Conheça mais</a>
+                        </div>
+                        <div class="resistencia-img">
+                            <img src="https://images.unsplash.com/photo-1614794540195-a67bc0e05d08?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Representação de resistência quilombola" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Herança Cultural Viva -->
+        <section id="heranca">
+            <div class="container">
+                <h2 class="section-title"><span class="star-deco">✦</span> Herança que pulsa no Brasil <span class="star-deco">✦</span></h2>
+                <p class="section-sub">A presença africana está na música, na fé, na culinária, na língua e na forma de ser brasileira.</p>
+                <div class="heranca-grid">
+                    <div class="heranca-item">
+                        <i class="fas fa-drumstick-bite"></i>
+                        <h4>Culinária</h4>
+                        <p>Acarajé, vatapá, moqueca, dendê – sabores que alimentam a identidade nacional.</p>
+                    </div>
+                    <div class="heranca-item">
+                        <i class="fas fa-music"></i>
+                        <h4>Música e dança</h4>
+                        <p>Samba, maracatu, jongo, batuque – ritmos que encantam o mundo.</p>
+                    </div>
+                    <div class="heranca-item">
+                        <i class="fas fa-church"></i>
+                        <h4>Religiosidade</h4>
+                        <p>Candomblé, Umbanda, sincretismo, festas populares como Lavagem do Bonfim.</p>
+                    </div>
+                    <div class="heranca-item">
+                        <i class="fas fa-language"></i>
+                        <h4>Língua</h4>
+                        <p>Vocabulários como "cafuné", "samba", "quitanda" e expressões herdadas do iorubá e quimbundo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dados para reflexão -->
+        <section id="memoria">
+            <div class="container">
+                <div class="dados">
+                    <h3 style="font-size: 1.8rem; color:#4A2A1A;">⭐ O peso da história em números ⭐</h3>
+                    <p class="section-sub" style="margin-bottom: 0.5rem;">Dados que revelam a dimensão do tráfico e da luta</p>
+                    <div class="stats-flex">
+                        <div class="stat">
+                            <div class="stat-number">4,8 mi</div>
+                            <div class="stat-desc">Africanos desembarcados no Brasil (até 1850)</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">40%</div>
+                            <div class="stat-desc">De todo o tráfico atlântico teve como destino o Brasil</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">>700</div>
+                            <div class="stat-desc">Quilombos registrados ao longo do período colonial</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1888</div>
+                            <div class="stat-desc">Abolição formal, mas sem reparação</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 32px; font-size: 0.9rem;">Fonte: estimativas históricas (IBGE, UNESP, Projeto "Slave Voyages") – dados consolidados para fins educativos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chamada para reflexão e combate ao racismo estrutural -->
+        <section id="reflexao">
+            <div class="container cta-reflexao">
+                <h2>⭐ O passado não pode ser apagado ⭐</h2>
+                <p style="max-width: 680px; margin: 0 auto;">A escravidão africana no Brasil deixou marcas profundas no racismo, na desigualdade social e na violência. Combater o esquecimento e reconhecer a contribuição negra é passo fundamental por uma sociedade mais justa e antirracista.</p>
+                <a href="#" class="btn-primario"><i class="fas fa-book-open"></i> Leia mais sobre memória e reparação</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Áfricas no Brasil</h4>
+                        <p>Espaço de memória, educação e resistência. Valorizamos a ancestralidade e incentivamos o debate antirracista nas escolas e comunidades.</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Navegue</h4>
+                        <p><a href="#historico">História e tráfico</a></p>
+                        <p><a href="#resistencia">Resistência quilombola</a></p>
+                        <p><a href="#heranca">Herança cultural</a></p>
+                        <p><a href="#memoria">Memória e dados</a></p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Referências educativas</h4>
+                        <p>Museu Afro Brasil</p>
+                        <p>Instituto de Pesquisa e Memória Pretos Novos</p>
+                        <p>Lei 10.639/03 (ensino de história afro-brasileira)</p>
+                    </div>
+                </div>
+                <div class="copyright">
+                    <p>© 2025 — Memória Afro: site dedicado à verdade histórica e à luta antirracista. <br> A escravidão foi crime contra a humanidade. Honrar a memória é construir um futuro igualitário.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
